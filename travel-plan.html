@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>خطة السفر</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            direction: rtl;
+            text-align: right;
+            padding: 20px;
+        }
+        .current-date {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #ffd700;
+            color: black;
+        }
+        .send-button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #25d366;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            font-size: 16px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+    </style>
+    <script>
+        function getCurrentDateTime() {
+            const options = { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit' };
+            const now = new Date().toLocaleDateString('ar-EG', options);
+            document.getElementById('currentDate').innerText = now;
+        }
+
+        function sendWhatsApp() {
+            const content = `
+            خطة السفر
+            شهر ٨: مشكلة كوركال
+            شهر ٩: السفر و اروح الجامعة ماتريكولا و عمل النيف و الجونطا و الحساب البنكي و اقابل مونيا - و اسأل السيف علي الفيش للتقديم علي الاقامة - و ارجع ١-١٠
+            شهر ١٠: اعلام الشركة بالاستقالة يوم ١-١٠ و طلب نقل الكفالة عمل الفيش من السعودية و توثيقه ابوستيل
+            شهر ١١: السفر ١-١١
+            `;
+
+            const url = `https://wa.me/?text=${encodeURIComponent(content)}`;
+            window.open(url, '_blank');
+        }
+
+        window.onload = getCurrentDateTime;
+    </script>
+</head>
+<body>
+
+    <div class="current-date" id="currentDate"></div>
+
+    <table>
+        <thead>
+            <tr>
+                <th colspan="2">خطة السفر</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>شهر ٨</td>
+                <td>مشكلة كوركال</td>
+            </tr>
+            <tr>
+                <td>شهر ٩</td>
+                <td>السفر و اروح الجامعة ماتريكولا و عمل النيف و الجونطا و الحساب البنكي و اقابل مونيا - و اسأل السيف علي الفيش للتقديم علي الاقامة - و ارجع ١-١٠</td>
+            </tr>
+            <tr>
+                <td>شهر ١٠</td>
+                <td>اعلام الشركة بالاستقالة يوم ١-١٠ و طلب نقل الكفالة عمل الفيش من السعودية و توثيقه ابوستيل</td>
+            </tr>
+            <tr>
+                <td>شهر ١١</td>
+                <td>السفر ١-١١</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="#" class="send-button" onclick="sendWhatsApp()">إرسال عبر واتساب</a>
+
+</body>
+</html>
