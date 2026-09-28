@@ -3,21 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مواعيد عمل البلدية - Stadhuis Schedule</title>
+    <title>مواعيد عمل البلدية - Stadhuis</title>
     <style>
-        :root {
-            --primary-color: #0056b3;
-            --secondary-color: #212529;
-            --bg-color: #f8f9fa;
-            --card-bg: #ffffff;
-            --alert-color: #d9534f;
-            --border-radius: 12px;
-        }
-
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--secondary-color);
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            color: #212529;
             margin: 0;
             padding: 20px;
             display: flex;
@@ -27,15 +18,15 @@
         .container {
             max-width: 650px;
             width: 100%;
-            background: var(--card-bg);
-            border-radius: var(--border-radius);
+            background: #ffffff;
+            border-radius: 12px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.08);
             overflow: hidden;
             border: 1px solid #eee;
         }
 
         .header {
-            background-color: var(--primary-color);
+            background-color: #0056b3;
             color: white;
             padding: 20px;
             text-align: center;
@@ -48,7 +39,6 @@
 
         .header p {
             margin: 0;
-            opacity: 0.9;
             font-size: 14px;
         }
 
@@ -62,13 +52,12 @@
         }
 
         h2 {
-            color: var(--primary-color);
+            color: #0056b3;
             font-size: 18px;
             margin-top: 0;
             margin-bottom: 15px;
         }
 
-        /* Schedule Table */
         table {
             width: 100%;
             border-collapse: collapse;
@@ -84,33 +73,29 @@
         th {
             background-color: #fcfcfc;
             color: #666;
-            font-weight: 600;
         }
 
-        .badge {
-            display: inline-block;
+        .time-box {
+            background-color: #e7f1ff;
+            color: #0056b3;
             padding: 4px 8px;
             border-radius: 4px;
-            font-size: 13px;
             font-weight: bold;
-            background-color: #e7f1ff;
-            color: var(--primary-color);
         }
 
         .info-box {
             background-color: #fff3cd;
             border-right: 4px solid #ffc107;
-            padding: 12px 15px;
+            padding: 12px;
             border-radius: 4px;
             margin-top: 10px;
-            font-weight: 500;
         }
 
         .alert-box {
             background-color: #f8d7da;
-            border-right: 4px solid var(--alert-color);
+            border-right: 4px solid #d9534f;
             color: #721c24;
-            padding: 12px 15px;
+            padding: 12px;
             border-radius: 4px;
             margin-top: 10px;
             font-weight: bold;
@@ -119,7 +104,7 @@
         .location-info {
             background-color: #f8f9fa;
             border: 1px solid #e9ecef;
-            padding: 12px 15px;
+            padding: 12px;
             border-radius: 6px;
             margin-top: 10px;
             font-size: 14px;
@@ -129,13 +114,11 @@
 <body>
 
 <div class="container">
-    <!-- Header -->
     <div class="header">
         <h1>مواعيد عمل البلدية (Stadhuis)</h1>
         <p>Openingstijden Stadhuis</p>
     </div>
 
-    <!-- Section 1: Working Hours -->
     <div class="section">
         <h2>📅 مواعيد الفتح الأسبوعية</h2>
         <table>
@@ -148,27 +131,27 @@
             <tbody>
                 <tr>
                     <td><strong>الإثنين (maandag)</strong></td>
-                    <td><span class="badge">9:00 - 12:00</span></td>
+                    <td><div class="time-box">9:00 - 12:00</div></td>
                 </tr>
                 <tr>
                     <td><strong>الثلاثاء (dinsdag)</strong></td>
-                    <td><span class="badge">9:00 - 12:00</span></td>
+                    <td><div class="time-box">9:00 - 12:00</div></td>
                 </tr>
                 <tr>
                     <td><strong>الأربعاء (woensdag)</strong></td>
-                    <td><span class="badge">9:00 - 12:00</span> و <span class="badge">14:00 - 17:00</span></td>
+                    <td><div class="time-box">9:00 - 12:00 / 14:00 - 17:00</div></td>
                 </tr>
                 <tr>
                     <td><strong>الخميس (donderdag)</strong></td>
-                    <td><span class="badge">9:00 - 12:00</span> و <span class="badge">16:00 - 19:00</span></td>
+                    <td><div class="time-box">9:00 - 12:00 / 16:00 - 19:00</div></td>
                 </tr>
                 <tr>
                     <td><strong>الجمعة (vrijdag)</strong></td>
-                    <td><span class="badge">9:00 - 14:00</span></td>
+                    <td><div class="time-box">9:00 - 14:00</div></td>
                 </tr>
                 <tr>
                     <td><strong>السبت الثاني من كل شهر</strong></td>
-                    <td><span class="badge">9:00 - 12:00</span> <small>(الاستقبال وشؤون المواطنين فقط)</small></td>
+                    <td><div class="time-box">9:00 - 12:00</div> (الاستقبال وشؤون المواطنين فقط)</td>
                 </tr>
             </tbody>
         </table>
@@ -178,7 +161,6 @@
         </div>
     </div>
 
-    <!-- Section 2: Important Notices -->
     <div class="section">
         <h2>⚠️ إعلانات وملاحظات هامة</h2>
         
@@ -186,15 +168,13 @@
             ⛔ البلدية مغلقة يوم الجمعة 25 سبتمبر (Het stadhuis is gesloten op vrijdag 25 september)[span_1](start_span)[span_1](end_span).
         </div>
 
-        <div class="location-info" style="margin-top: 15px;">
+        <div class="location-info">
             💍 <strong>قاعة عقد القران (Trouwzaal):</strong>
-            <br>
             الوصول عبر شارع المحطة والحديقة (via Stationsstraat en park)[span_2](start_span)[span_2](end_span).
         </div>
 
         <div class="location-info">
             🅿️ <strong>مواقف السيارات (المنطقة الزرقاء - Blauwe Zone):</strong>
-            <br>
             يجب استخدام قرص الوقوف الأزرق (Parkeerschijf) في هذا الشارع[span_3](start_span)[span_3](end_span).
         </div>
     </div>
