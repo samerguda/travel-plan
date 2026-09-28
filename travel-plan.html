@@ -1,102 +1,204 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>خطة السفر</title>
+    <title>مواعيد عمل البلدية - Stadhuis Schedule</title>
     <style>
+        :root {
+            --primary-color: #0056b3;
+            --secondary-color: #212529;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --alert-color: #d9534f;
+            --border-radius: 12px;
+        }
+
         body {
-            font-family: Arial, sans-serif;
-            direction: rtl;
-            text-align: right;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--secondary-color);
+            margin: 0;
             padding: 20px;
+            display: flex;
+            justify-content: center;
         }
-        .current-date {
+
+        .container {
+            max-width: 650px;
+            width: 100%;
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            overflow: hidden;
+            border: 1px solid #eee;
+        }
+
+        .header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 20px;
             text-align: center;
-            margin-bottom: 20px;
-            font-size: 18px;
         }
+
+        .header h1 {
+            margin: 0 0 5px 0;
+            font-size: 24px;
+        }
+
+        .header p {
+            margin: 0;
+            opacity: 0.9;
+            font-size: 14px;
+        }
+
+        .section {
+            padding: 20px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .section:last-child {
+            border-bottom: none;
+        }
+
+        h2 {
+            color: var(--primary-color);
+            font-size: 18px;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+
+        /* Schedule Table */
         table {
             width: 100%;
             border-collapse: collapse;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
         }
+
         th, td {
-            border: 1px solid #ddd;
-            padding: 8px;
-            text-align: center;
-        }
-        th {
-            background-color: #ffd700;
-            color: black;
-        }
-        .send-button {
-            display: block;
-            width: 100%;
             padding: 10px;
-            background-color: #25d366;
-            color: white;
-            text-align: center;
-            text-decoration: none;
-            font-size: 16px;
-            border-radius: 5px;
-            margin-top: 20px;
+            text-align: right;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        th {
+            background-color: #fcfcfc;
+            color: #666;
+            font-weight: 600;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 13px;
+            font-weight: bold;
+            background-color: #e7f1ff;
+            color: var(--primary-color);
+        }
+
+        .info-box {
+            background-color: #fff3cd;
+            border-right: 4px solid #ffc107;
+            padding: 12px 15px;
+            border-radius: 4px;
+            margin-top: 10px;
+            font-weight: 500;
+        }
+
+        .alert-box {
+            background-color: #f8d7da;
+            border-right: 4px solid var(--alert-color);
+            color: #721c24;
+            padding: 12px 15px;
+            border-radius: 4px;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        .location-info {
+            background-color: #f8f9fa;
+            border: 1px solid #e9ecef;
+            padding: 12px 15px;
+            border-radius: 6px;
+            margin-top: 10px;
+            font-size: 14px;
         }
     </style>
-    <script>
-        function getCurrentDateTime() {
-            const options = { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit' };
-            const now = new Date().toLocaleDateString('ar-EG', options);
-            document.getElementById('currentDate').innerText = now;
-        }
-
-        function sendWhatsApp() {
-            const content = `
-            خطة السفر
-            شهر ٨: مشكلة كوركال
-            شهر ٩: السفر و اروح الجامعة ماتريكولا و عمل النيف و الجونطا و الحساب البنكي و اقابل مونيا - و اسأل السيف علي الفيش للتقديم علي الاقامة - و ارجع ١-١٠
-            شهر ١٠: اعلام الشركة بالاستقالة يوم ١-١٠ و طلب نقل الكفالة عمل الفيش من السعودية و توثيقه ابوستيل
-            شهر ١١: السفر ١-١١
-            `;
-
-            const url = `https://wa.me/?text=${encodeURIComponent(content)}`;
-            window.open(url, '_blank');
-        }
-
-        window.onload = getCurrentDateTime;
-    </script>
 </head>
 <body>
 
-    <div class="current-date" id="currentDate"></div>
+<div class="container">
+    <!-- Header -->
+    <div class="header">
+        <h1>مواعيد عمل البلدية (Stadhuis)</h1>
+        <p>Openingstijden Stadhuis</p>
+    </div>
 
-    <table>
-        <thead>
-            <tr>
-                <th colspan="2">خطة السفر</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>شهر ٨</td>
-                <td>مشكلة كوركال</td>
-            </tr>
-            <tr>
-                <td>شهر ٩</td>
-                <td>السفر و اروح الجامعة ماتريكولا و عمل النيف و الجونطا و الحساب البنكي و اقابل مونيا - و اسأل السيف علي الفيش للتقديم علي الاقامة - و ارجع ١-١٠</td>
-            </tr>
-            <tr>
-                <td>شهر ١٠</td>
-                <td>اعلام الشركة بالاستقالة يوم ١-١٠ و طلب نقل الكفالة عمل الفيش من السعودية و توثيقه ابوستيل</td>
-            </tr>
-            <tr>
-                <td>شهر ١١</td>
-                <td>السفر ١-١١</td>
-            </tr>
-        </tbody>
-    </table>
+    <!-- Section 1: Working Hours -->
+    <div class="section">
+        <h2>📅 مواعيد الفتح الأسبوعية</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>اليوم</th>
+                    <th>ساعات العمل</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>الإثنين (maandag)</strong></td>
+                    <td><span class="badge">9:00 - 12:00</span></td>
+                </tr>
+                <tr>
+                    <td><strong>الثلاثاء (dinsdag)</strong></td>
+                    <td><span class="badge">9:00 - 12:00</span></td>
+                </tr>
+                <tr>
+                    <td><strong>الأربعاء (woensdag)</strong></td>
+                    <td><span class="badge">9:00 - 12:00</span> و <span class="badge">14:00 - 17:00</span></td>
+                </tr>
+                <tr>
+                    <td><strong>الخميس (donderdag)</strong></td>
+                    <td><span class="badge">9:00 - 12:00</span> و <span class="badge">16:00 - 19:00</span></td>
+                </tr>
+                <tr>
+                    <td><strong>الجمعة (vrijdag)</strong></td>
+                    <td><span class="badge">9:00 - 14:00</span></td>
+                </tr>
+                <tr>
+                    <td><strong>السبت الثاني من كل شهر</strong></td>
+                    <td><span class="badge">9:00 - 12:00</span> <small>(الاستقبال وشؤون المواطنين فقط)</small></td>
+                </tr>
+            </tbody>
+        </table>
 
-    <a href="#" class="send-button" onclick="sendWhatsApp()">إرسال عبر واتساب</a>
+        <div class="info-box">
+            📌 <strong>تنبيه:</strong> العمل في البلدية يتم <u>بموعد مسبق فقط</u> (Het stadhuis werkt op afspraak)[span_0](start_span)[span_0](end_span).
+        </div>
+    </div>
+
+    <!-- Section 2: Important Notices -->
+    <div class="section">
+        <h2>⚠️ إعلانات وملاحظات هامة</h2>
+        
+        <div class="alert-box">
+            ⛔ البلدية مغلقة يوم الجمعة 25 سبتمبر (Het stadhuis is gesloten op vrijdag 25 september)[span_1](start_span)[span_1](end_span).
+        </div>
+
+        <div class="location-info" style="margin-top: 15px;">
+            💍 <strong>قاعة عقد القران (Trouwzaal):</strong>
+            <br>
+            الوصول عبر شارع المحطة والحديقة (via Stationsstraat en park)[span_2](start_span)[span_2](end_span).
+        </div>
+
+        <div class="location-info">
+            🅿️ <strong>مواقف السيارات (المنطقة الزرقاء - Blauwe Zone):</strong>
+            <br>
+            يجب استخدام قرص الوقوف الأزرق (Parkeerschijf) في هذا الشارع[span_3](start_span)[span_3](end_span).
+        </div>
+    </div>
+</div>
 
 </body>
 </html>
